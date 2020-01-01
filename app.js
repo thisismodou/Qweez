@@ -15,9 +15,17 @@ form.addEventListener('submit', e => {
 	answers.forEach((answer, index) => {
 		if (answer === correctAnswers[index]) {
 			score += 25;
-			scrollTo(0, 0);
-			result.classList.remove('d-none');
-			spanText.textContent = `${score}%`;
 		}
 	});
+
+	// Show results
+	scrollTo(0, 0);
+	result.classList.remove('d-none');
+	spanText.textContent = `${score}%`;
+
+	let output = 0;
+	const timer = setInterval(() => {
+		spanText.textContent = `${output}%`;
+		output === score ? clearInterval(timer) : output++;
+	}, 20);
 });

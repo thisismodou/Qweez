@@ -3,8 +3,6 @@ const form = document.querySelector('.quiz-form');
 const result = document.querySelector('.result');
 let spanText = document.querySelector('.result span');
 
-console.log(spanText.textContent);
-
 form.addEventListener('submit', e => {
 	e.preventDefault();
 
@@ -13,9 +11,7 @@ form.addEventListener('submit', e => {
 
 	// Check answers
 	answers.forEach((answer, index) => {
-		if (answer === correctAnswers[index]) {
-			score += 25;
-		}
+		answer === correctAnswers[index] ? (score += 25) : '';
 	});
 
 	// Show results
